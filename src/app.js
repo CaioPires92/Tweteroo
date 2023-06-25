@@ -34,7 +34,7 @@ app.post('/tweets', (req, res) => {
   const { username, tweet } = req.body
 
   if (!usuarioRegistrado) {
-    return res.status(403).send('UNAUTHORIZED')
+    return res.status(200).send('UNAUTHORIZED')
   }
 
   if (!username || !tweet) {
@@ -47,8 +47,6 @@ app.post('/tweets', (req, res) => {
 
   res.status(201).send('OK')
 })
-
-
 
 app.get('/tweets', (req, res) => {
   const dezUltimosTweets = tweetsList.slice(-10)
